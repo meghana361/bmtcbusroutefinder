@@ -2,7 +2,7 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const cors = require('cors');
-
+const path=require("path")
 const app = express();
 const port = 5000;
 
@@ -70,7 +70,10 @@ app.get('/routes', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
+app.use(express.static(path.join(__dirname,"/frontend/dist")))
+app.get("*",(req,res)=>{
+  res.sendFile(path.join())
+})
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
