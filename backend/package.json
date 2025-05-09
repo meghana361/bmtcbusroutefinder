@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": {
-    "dev": "NODE_ENV=development node backend/server.js",
-    "start": "NODE_ENV=production node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "prisma": "prisma generate"
-  },
+ "scripts": {
+  "dev": "nodemon index.js",
+  "start": "node index.js",
+  "build": "npx prisma generate"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
