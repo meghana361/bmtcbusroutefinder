@@ -1,4 +1,4 @@
-require('dotenv').config({ path: require('path').resolve(__dirname, 'backend', '.env') });
+require('dotenv').config({ path: './backend/.env' }); // make sure .env loads
 
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
