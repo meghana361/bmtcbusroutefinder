@@ -5,7 +5,9 @@
 "scripts": {
   "dev": "nodemon backend/server.js",
   "start": "node backend/server.js",
-  "build": "npx prisma generate --schema=./backend/prisma/schema.prisma"}
+  "build": "npx prisma generate --schema=./backend/prisma/schema.prisma"
+}
+
 
 ,
   "keywords": [],

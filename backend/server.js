@@ -1,8 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const cors = require('cors');
-const path=require("path")
+const path = require('path');
 const app = express();
 const port = 5000;
 
@@ -58,7 +59,7 @@ app.get('/routes', async (req, res) => {
     );
 
     if (matchingRoutes.length === 0) {
-      return res.status(404).json({ error: 'No matching routes found between source and destination.U might have to take multiple routes ' });
+      return res.status(404).json({ error: 'No matching routes found between source and destination. You might have to take multiple routes.' });
     }
 
     // To Return route codes
@@ -70,16 +71,6 @@ app.get('/routes', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "frontend", "build")));
-
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-//   });
-// }
-
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
