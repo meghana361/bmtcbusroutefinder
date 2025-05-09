@@ -5,8 +5,7 @@
 "scripts": {
   "dev": "nodemon index.js",
   "start": "node index.js",
-  "build": "npx prisma generate --schema=./backend/prisma/schema.prisma"
-}
+  "build": "npx prisma generate --schema=./backend/prisma/schema.prisma"}
 
 ,
   "keywords": [],
