@@ -73,6 +73,8 @@ app.get('/routes', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const host = '0.0.0.0'; // ← THIS is important
+
+app.listen(port, host, () => {
+  console.log(`Server is running on http://${host}:${port}`);
 });
