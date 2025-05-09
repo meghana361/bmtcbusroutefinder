@@ -70,13 +70,13 @@ app.get('/routes', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-// Serve static files from the frontend build folder
-// app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "frontend", "build")));
 
-// // Wildcard route to serve index.html for all other routes (this is for single-page apps)
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
-// });
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
 
 
 app.listen(port, () => {
