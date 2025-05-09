@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "backend/server.js",
   "scripts": {
-    "dev": "nodemon backend/server.js",
     "start": "node backend/server.js",
-    "build": "npx prisma generate --schema=./backend/prisma/schema.prisma"
+    "build": "cd backend && npx prisma generate"
   },
+
+
   "keywords": [],
   "author": "",
   "license": "ISC",
