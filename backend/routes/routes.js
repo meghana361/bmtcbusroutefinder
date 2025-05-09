@@ -52,7 +52,7 @@ router.get('/routes', async (req, res) => {
     );
 
     if (matchingRoutes.length === 0) {
-      return res.status(404).json({ error: 'No matching routes found between source and destination' });
+      return res.status(404).json({ error: 'No matching routes found between source and destination.You might have to take multiple stops' });
     }
 
     // 4. Return route codes

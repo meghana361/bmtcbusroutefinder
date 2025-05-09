@@ -58,7 +58,7 @@ app.get('/routes', async (req, res) => {
     );
 
     if (matchingRoutes.length === 0) {
-      return res.status(404).json({ error: 'No matching routes found between source and destination' });
+      return res.status(404).json({ error: 'No matching routes found between source and destination.U might have to take multiple routes ' });
     }
 
     // To Return route codes
@@ -70,10 +70,14 @@ app.get('/routes', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-app.use(express.static(path.join(__dirname,"/frontend/dist")))
-app.get("*",(req,res)=>{
-  res.sendFile(path.join())
-})
+// Serve static files from the frontend build folder
+// app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+
+// // Wildcard route to serve index.html for all other routes (this is for single-page apps)
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+// });
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
