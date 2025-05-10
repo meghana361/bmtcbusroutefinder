@@ -37,7 +37,7 @@ const RouteFinder = () => {
     }
 
     try {
-      const response = await axios.get(`${apiUrl}/stops`, {
+      const response = await axios.get(`${apiUrl}/routes`, {
         params: {
           source: source.trim(),
           destination: destination.trim(),
