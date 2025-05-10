@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 const RouteFinder = () => {
   const [source, setSource] = useState('');
   const [destination, setDestination] = useState('');
@@ -10,11 +11,13 @@ const RouteFinder = () => {
   const [stops, setStops] = useState([]);
   const [sourceSuggestions, setSourceSuggestions] = useState([]);
   const [destSuggestions, setDestSuggestions] = useState([]);
+  
+  
 
   useEffect(() => {
     const fetchStops = async () => {
       try {
-        const res = await axios.get('bmtcbusroutefinder-production.up.railway.app/stops');
+        const res = await axios.get(`${apiUrl}/stops`)
         setStops(res.data.map(stop => stop.stop_name));
       } catch (err) {
         console.error('Failed to fetch stops:', err);
@@ -34,7 +37,7 @@ const RouteFinder = () => {
     }
 
     try {
-      const response = await axios.get('bmtcbusroutefinder-production.up.railway.app/routes', {
+      const response = await axios.get(`${apiUrl}/stops`, {
         params: {
           source: source.trim(),
           destination: destination.trim(),
