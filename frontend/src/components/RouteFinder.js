@@ -14,7 +14,7 @@ const RouteFinder = () => {
   useEffect(() => {
     const fetchStops = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/stops');
+        const res = await axios.get('bmtcbusroutefinder-production.up.railway.app/stops');
         setStops(res.data.map(stop => stop.stop_name));
       } catch (err) {
         console.error('Failed to fetch stops:', err);
@@ -30,11 +30,11 @@ const RouteFinder = () => {
 
     if (!source || !destination) {
       setError('Please enter both source and destination.');
-      return;
+      return; 
     }
 
     try {
-      const response = await axios.get('http://localhost:5000/routes', {
+      const response = await axios.get('bmtcbusroutefinder-production.up.railway.app/routes', {
         params: {
           source: source.trim(),
           destination: destination.trim(),
