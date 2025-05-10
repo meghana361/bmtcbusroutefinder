@@ -255,7 +255,7 @@ const RouteFinder = () => {
 
   return (
     <div style={containerStyle}>
-            <h1 style={{marginLeft:"670px"}}>Bus Route Finder</h1>
+            <h1>Bus Route Finder</h1>
       <h2>Find Bus Routes</h2>
       <form onSubmit={handleSearch} style={formStyle}>
         <div style={inputWrapperStyle}>
